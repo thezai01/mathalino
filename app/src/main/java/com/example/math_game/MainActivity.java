@@ -1,5 +1,9 @@
 package com.example.math_game;
-
+import android.os.CountDownTimer;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.Toast;
+import android.window.SplashScreen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
         db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);

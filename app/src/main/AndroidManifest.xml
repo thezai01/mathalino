@@ -13,27 +13,28 @@
         android:theme="@style/Theme.Math_game"
         tools:targetApi="31">
         <activity
+            android:name=".Achievement"
+            android:exported="false" />
+        <activity
             android:name=".GameActivity"
             android:exported="false"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".HomePage"
             android:exported="false"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".SignUp"
             android:exported="false"
-            android:screenOrientation="sensorPortrait"/>
-
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
 
         <activity
             android:name=".SplashScreen"
             android:exported="true"
-            android:theme="@style/Theme.Splash.Starting"
             android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

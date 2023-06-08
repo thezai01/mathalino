@@ -1,5 +1,5 @@
 package com.example.math_game;
-
+import android.window.SplashScreen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        androidx.core.splashscreen.SplashScreen.installSplashScreen(this);
         setContentView(R.layout.activity_main);
 
         db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);

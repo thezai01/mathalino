@@ -28,6 +28,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="sensorPortrait"/>
+
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
             android:theme="@style/Theme.Splash.Starting"
             android:screenOrientation="sensorPortrait">
             <intent-filter>

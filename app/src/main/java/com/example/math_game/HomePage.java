@@ -12,6 +12,8 @@ public class HomePage extends AppCompatActivity {
 
     String username="";
 
+    int intentCheck, lvl, score;
+
     CardView lvl1, lvl2, lvl3;
 
     Intent intent;
@@ -22,10 +24,16 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        intent = getIntent();
         handle = new Handler();
 
+        intent = getIntent();
         username = intent.getStringExtra("username");
+        intentCheck = intent.getIntExtra("intent",0);
+        if(intentCheck == 1){
+            lvl = intent.getIntExtra("lvl",0);
+            score = intent.getIntExtra("score",0);
+        }
+
         TextView hpUser = findViewById(R.id.homepageUser);
         hpUser.setText(username);
 

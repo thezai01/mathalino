@@ -157,41 +157,6 @@ public class SignUp extends AppCompatActivity {
 
     }
 
-
-    // confirm message
-    public void showConfirm(int view, String title, String msg){
-        ImageView exitIcon;
-        Button cancel_btn, confirm_btn;
-        TextView changeTitle, changeMsg;
-
-        confirmDialog.setContentView(view);
-        exitIcon = confirmDialog.findViewById(R.id.success_exit);
-        exitIcon.setOnClickListener(v -> {
-            exitIcon.setColorFilter(ContextCompat.getColor(SignUp.this, R.color.error), PorterDuff.Mode.SRC_IN);
-            confirmDialog.dismiss();
-        });
-
-        changeTitle = confirmDialog.findViewById(R.id.success_title);
-        changeTitle.setText(title);
-
-        changeMsg = confirmDialog.findViewById(R.id.success_msg);
-        changeMsg.setText(msg);
-
-        confirm_btn = confirmDialog.findViewById(R.id.dialog_cancel);
-        confirm_btn.setOnClickListener(v -> confirmDialog.dismiss());
-
-        confirm_btn = confirmDialog.findViewById(R.id.success_ok);
-        confirm_btn.setOnClickListener(v -> {
-            Intent intent = new Intent(SignUp.this, HomePage.class);
-            startActivity(intent);
-            confirmDialog.dismiss();
-            handle.postDelayed(this::finish, 0);
-        });
-
-        confirmDialog.show();
-    }
-
-
     // date picker
     private void initDatePicker(){
 

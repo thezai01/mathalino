@@ -9,9 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +29,7 @@ public class HomePage extends AppCompatActivity {
 
     Intent intent;
     Handler handle;
-    Dialog errorDialog;
+    Dialog errorDialog, confirmDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,16 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         errorDialog = new Dialog(this);
+        confirmDialog = new Dialog(this);
         handle = new Handler();
 
         intent = getIntent();
         username = intent.getStringExtra("username");
         intentCheck = intent.getIntExtra("intent",0);
+
+        lvl1 = findViewById(R.id.cardViewLvl1);
+        lvl2 = findViewById(R.id.cardViewLvl2);
+        lvl3 = findViewById(R.id.cardViewLvl3);
 
         SQLiteDatabase db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);
         Cursor cursor = db.rawQuery("SELECT * FROM userScore WHERE username ='" + username + "'", null);
@@ -76,10 +83,21 @@ public class HomePage extends AppCompatActivity {
         lvl2tx.setText(String.valueOf(scorelvl2));
         lvl3tx.setText(String.valueOf(scorelvl3));
 
+        ImageView locked2 = findViewById(R.id.lvl2Locked);
+        ImageView locked3 = findViewById(R.id.lvl3Locked);
+
+        if(scorelvl1 >= 60){
+            lvl2.setCardBackgroundColor(Color.WHITE);
+            locked2.setVisibility(View.INVISIBLE);
+        }
+        if(scorelvl2 >= 60){
+            lvl3.setCardBackgroundColor(Color.WHITE);
+            locked3.setVisibility(View.INVISIBLE);
+        }
+
         TextView hpUser = findViewById(R.id.homepageUser);
         hpUser.setText(username);
 
-        lvl1 = findViewById(R.id.cardViewLvl1);
         lvl1.setOnClickListener(v ->{
             intent = new Intent(HomePage.this, GameActivity.class);
             intent.putExtra("lvl",1);
@@ -88,7 +106,6 @@ public class HomePage extends AppCompatActivity {
             handle.postDelayed(this::finish, 0);
         });
 
-        lvl2 = findViewById(R.id.cardViewLvl2);
         lvl2.setOnClickListener(v ->{
             if(scorelvl1>=60) {
                 intent = new Intent(HomePage.this, GameActivity.class);
@@ -101,7 +118,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        lvl3 = findViewById(R.id.cardViewLvl3);
         lvl3.setOnClickListener(v ->{
             if(scorelvl2>=60) {
                 intent = new Intent(HomePage.this, GameActivity.class);
@@ -114,14 +130,11 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        CardView leaderboard = findViewById(R.id.cardViewLeaderboards);
-
-        leaderboard.setOnClickListener(v ->{
-            intent = new Intent(HomePage.this, Leaderboards.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
-            handle.postDelayed(this::finish, 0);
+        ImageView logout = findViewById(R.id.homepageLogout);
+        logout.setOnClickListener(v ->{
+            showConfirm(R.layout.activity_confirm_msg, "Logout","Are you sure about that?");
         });
+
 
     }
 
@@ -147,6 +160,39 @@ public class HomePage extends AppCompatActivity {
         exit_btn.setOnClickListener(v -> errorDialog.dismiss());
 
         errorDialog.show();
+    }
+
+    // confirm message
+    public void showConfirm(int view, String title, String msg){
+        ImageView exitIcon;
+        Button cancel_btn, confirm_btn;
+        TextView changeTitle, changeMsg;
+
+        confirmDialog.setContentView(view);
+        exitIcon = confirmDialog.findViewById(R.id.success_exit);
+        exitIcon.setOnClickListener(v -> {
+            exitIcon.setColorFilter(ContextCompat.getColor(HomePage.this, R.color.error), PorterDuff.Mode.SRC_IN);
+            confirmDialog.dismiss();
+        });
+
+        changeTitle = confirmDialog.findViewById(R.id.success_title);
+        changeTitle.setText(title);
+
+        changeMsg = confirmDialog.findViewById(R.id.success_msg);
+        changeMsg.setText(msg);
+
+        confirm_btn = confirmDialog.findViewById(R.id.dialog_cancel);
+        confirm_btn.setOnClickListener(v -> confirmDialog.dismiss());
+
+        confirm_btn = confirmDialog.findViewById(R.id.success_ok);
+        confirm_btn.setOnClickListener(v -> {
+            Intent intent = new Intent(HomePage.this, MainActivity.class);
+            startActivity(intent);
+            confirmDialog.dismiss();
+            handle.postDelayed(this::finish, 0);
+        });
+
+        confirmDialog.show();
     }
 
 }

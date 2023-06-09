@@ -35,10 +35,10 @@
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.305"
                     app:layout_constraintStart_toEndOf="@+id/homepageWelcomeText"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.615" />
+                    app:layout_constraintVertical_bias="0.73" />
 
                 <TextView
                     android:id="@+id/homepageWelcomeText"
@@ -50,10 +50,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.093"
+                    app:layout_constraintHorizontal_bias="0.096"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.565" />
+                    app:layout_constraintVertical_bias="0.695" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -61,9 +61,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Level"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
+                android:text="Challenges"
+                android:textColor="@color/error"
+                android:textSize="34sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,17 +71,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.6" />
-
-            <ProgressBar
-                android:id="@+id/homepageProgressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp"
-                android:progressDrawable="@drawable/custom_progress_bar" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLvl1"

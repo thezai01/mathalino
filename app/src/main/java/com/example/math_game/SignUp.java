@@ -214,7 +214,6 @@ public class SignUp extends AppCompatActivity {
                 "VALUES('"+sUsername.getText().toString()+"'"+","+"'"+sPass.getText().toString()+"'"+","+"'"+sName.getText().toString()+
                 "'"+","+"'"+ textDate+"'"+","+"'"+ age+"'"+","+"'"+ gender+"')");
 
-        //DATABASE FOR SCORES
 
         db.execSQL("CREATE TABLE IF NOT EXISTS userScore (username TEXT PRIMARY KEY,"+
                 "scorelvl1 INTEGER, scorelvl2 INTEGER, scorelvl3 INTEGER);");
@@ -223,8 +222,13 @@ public class SignUp extends AppCompatActivity {
                 "VALUES('"+sUsername.getText().toString()+"'"+","+"'"+ 0 +"'"+","+"'"+ 0 +
                 "'"+","+"'"+ 0 +"')");
 
-        welcome(R.layout.activity_success,"Successfully created an account. Welcome "+sUsername.getText().toString()+"!","SIGN UP");
+        db.execSQL("CREATE TABLE IF NOT EXISTS tableAccStats (username TEXT PRIMARY KEY,"+
+                "level INTEGER, experience INTEGER);");
 
+        db.execSQL("INSERT INTO tableAccStats (username, level, experience) " +
+                "VALUES('"+sUsername.getText().toString()+"'"+","+"'"+ 0 +"'"+","+"'"+ 0 +"')");
+
+        welcome(R.layout.activity_success,"Successfully created an account. Welcome "+sUsername.getText().toString()+"!","SIGN UP");
     }
 
 

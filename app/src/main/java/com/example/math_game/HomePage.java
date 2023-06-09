@@ -7,9 +7,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+<<<<<<< Updated upstream
+=======
+import android.database.sqlite.SQLiteOpenHelper;
+>>>>>>> Stashed changes
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class HomePage extends AppCompatActivity {
 
@@ -30,9 +37,11 @@ public class HomePage extends AppCompatActivity {
         handle = new Handler();
 
         intent = getIntent();
+
         username = intent.getStringExtra("username");
         intentCheck = intent.getIntExtra("intent",0);
 
+<<<<<<< Updated upstream
         SQLiteDatabase db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);
         Cursor cursor = db.rawQuery("SELECT * FROM userScore WHERE username ='" + username + "'", null);
 
@@ -59,6 +68,11 @@ public class HomePage extends AppCompatActivity {
             scorelvl1 = cursor.getInt(1) ;
             scorelvl2 = cursor.getInt(2);
             scorelvl3 =  cursor.getInt(3);
+=======
+        if(intentCheck == 1){
+            lvl = intent.getIntExtra("lvl",0);
+            score = intent.getIntExtra("score",0);
+>>>>>>> Stashed changes
         }
 
         TextView hpUser = findViewById(R.id.homepageUser);
@@ -91,5 +105,52 @@ public class HomePage extends AppCompatActivity {
             handle.postDelayed(this::finish, 0);
         });
 
+        showTop5();
+
+    }
+
+
+    private void showTop5() {
+        HashMap<String, Integer> top5 = getTop5();
+
+        // Iterate through the top5 HashMap and display the values using Toast
+        StringBuilder message = new StringBuilder("Top 5 Scores:\n");
+        for (String username : top5.keySet()) {
+            int level = top5.get(username);
+            message.append(username).append(": Level ").append(level).append("\n");
+        }
+
+        Toast.makeText(this, message.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    private HashMap<String, Integer> getTop5 (){
+        HashMap<String, Integer> top5 = new HashMap<String, Integer>();
+
+        SQLiteDatabase db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);
+
+        String query = "SELECT * FROM tableAccStats ORDER BY level DESC LIMIT 5;";
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        // Retrieve the data from the cursor
+        if (cursor.moveToFirst()) {
+            int usernameColumnIndex = cursor.getColumnIndex("username");
+            int levelColumnIndex = cursor.getColumnIndex("level");
+
+            int rank = 1;
+            do {
+                String username = cursor.getString(usernameColumnIndex);
+                int level = cursor.getInt(levelColumnIndex);
+
+                top5.put(username, level);
+                rank++;
+            } while (cursor.moveToNext());
+        }
+
+        // Close the cursor and database
+        cursor.close();
+        db.close();
+
+        return top5;
     }
 }

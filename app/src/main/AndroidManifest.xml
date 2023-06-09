@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Math_game"
         tools:targetApi="31">
         <activity
-            android:name=".Achievement"
-            android:exported="false" />
-        <activity
             android:name=".GameActivity"
             android:exported="false"
             android:screenOrientation="sensorPortrait" />

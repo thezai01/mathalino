@@ -114,6 +114,15 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        CardView leaderboard = findViewById(R.id.cardViewLeaderboards);
+
+        leaderboard.setOnClickListener(v ->{
+            intent = new Intent(HomePage.this, Leaderboards.class);
+            intent.putExtra("username", username);
+            startActivity(intent);
+            handle.postDelayed(this::finish, 0);
+        });
+
     }
 
     // error message

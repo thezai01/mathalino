@@ -34,7 +34,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="12dp"
             android:text="Username"
-            android:textColor="@color/red1"
+            android:textColor="@color/logo_blue"
             android:textSize="20sp"
             android:textStyle="bold" />
 

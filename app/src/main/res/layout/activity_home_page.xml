@@ -24,7 +24,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="75dp">
+                android:layout_marginTop="70dp">
 
                 <TextView
                     android:id="@+id/homepageUser"
@@ -57,7 +57,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/homepageUser3"
+                android:id="@+id/levelTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -86,7 +86,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLvl1"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="220dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
@@ -141,10 +141,44 @@
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.056"
+                            app:layout_constraintHorizontal_bias="0.058"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.444" />
+                            app:layout_constraintVertical_bias="0.102" />
+
+                        <TextView
+                            android:id="@+id/lvl1HighScoreTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Highest Score:"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.065"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.85" />
+
+                        <TextView
+                            android:id="@+id/lvl1HighScore"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="10"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/error"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.55"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.857" />
 
                         <TextView
                             android:id="@+id/txtTitle1"
@@ -156,9 +190,10 @@
                             android:textColor="@color/gray"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.78"
+                            app:layout_constraintHorizontal_bias="0.752"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.25" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
@@ -168,7 +203,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLvl2"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="220dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
@@ -222,10 +257,44 @@
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.056"
+                            app:layout_constraintHorizontal_bias="0.058"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.444" />
+                            app:layout_constraintVertical_bias="0.102" />
+
+                        <TextView
+                            android:id="@+id/lvl2HighScoreTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Highest Score:"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.065"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.85" />
+
+                        <TextView
+                            android:id="@+id/lvl2HighScore"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="10"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/error"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.55"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.857" />
 
                         <TextView
                             android:id="@+id/txtTitle2"
@@ -237,9 +306,10 @@
                             android:textColor="@color/gray"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.78"
+                            app:layout_constraintHorizontal_bias="0.752"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.25" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
@@ -249,7 +319,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLvl3"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="220dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
@@ -292,6 +362,23 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:id="@+id/lvl2HighScore2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="10"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/error"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.55"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.857" />
+
+                        <TextView
                             android:id="@+id/txtLvl3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -303,10 +390,10 @@
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.056"
+                            app:layout_constraintHorizontal_bias="0.058"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.444" />
+                            app:layout_constraintVertical_bias="0.102" />
 
                         <TextView
                             android:id="@+id/txtTitle3"
@@ -318,9 +405,27 @@
                             android:textColor="@color/gray"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.78"
+                            app:layout_constraintHorizontal_bias="0.752"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.25" />
+
+                        <TextView
+                            android:id="@+id/lvl3HighScoreTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Highest Score:"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.065"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.85" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
@@ -443,7 +548,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.65"
-                app:srcCompat="@drawable/custom_logout" />
+                app:srcCompat="@drawable/custom_logout"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/homepageGameTitle"

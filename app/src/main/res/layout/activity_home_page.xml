@@ -209,6 +209,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/white_select"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"

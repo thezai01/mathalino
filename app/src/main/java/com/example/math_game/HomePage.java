@@ -2,13 +2,18 @@ package com.example.math_game;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
@@ -18,15 +23,18 @@ public class HomePage extends AppCompatActivity {
     int intentCheck, lvl, score, scorelvl1, scorelvl2, scorelvl3;
 
     CardView lvl1, lvl2, lvl3;
+    TextView lvl1tx, lvl2tx, lvl3tx;
 
     Intent intent;
     Handler handle;
+    Dialog errorDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        errorDialog = new Dialog(this);
         handle = new Handler();
 
         intent = getIntent();
@@ -61,6 +69,13 @@ public class HomePage extends AppCompatActivity {
             scorelvl3 =  cursor.getInt(3);
         }
 
+        lvl1tx = findViewById(R.id.lvl1HighScore);
+        lvl2tx = findViewById(R.id.lvl2HighScore);
+        lvl3tx = findViewById(R.id.lvl3HighScore);
+        lvl1tx.setText(String.valueOf(scorelvl1));
+        lvl2tx.setText(String.valueOf(scorelvl2));
+        lvl3tx.setText(String.valueOf(scorelvl3));
+
         TextView hpUser = findViewById(R.id.homepageUser);
         hpUser.setText(username);
 
@@ -75,21 +90,54 @@ public class HomePage extends AppCompatActivity {
 
         lvl2 = findViewById(R.id.cardViewLvl2);
         lvl2.setOnClickListener(v ->{
-            intent = new Intent(HomePage.this, GameActivity.class);
-            intent.putExtra("lvl",2);
-            intent.putExtra("username",username);
-            startActivity(intent);
-            handle.postDelayed(this::finish, 0);
+            if(scorelvl1>=60) {
+                intent = new Intent(HomePage.this, GameActivity.class);
+                intent.putExtra("lvl", 2);
+                intent.putExtra("username", username);
+                startActivity(intent);
+                handle.postDelayed(this::finish, 0);
+            }else{
+                errorMsg(R.layout.activity_error_msg,"You need to have at least 60 points from the previous level to unlock this.");
+            }
         });
 
         lvl3 = findViewById(R.id.cardViewLvl3);
         lvl3.setOnClickListener(v ->{
-            intent = new Intent(HomePage.this, GameActivity.class);
-            intent.putExtra("lvl",3);
-            intent.putExtra("username",username);
-            startActivity(intent);
-            handle.postDelayed(this::finish, 0);
+            if(scorelvl2>=60) {
+                intent = new Intent(HomePage.this, GameActivity.class);
+                intent.putExtra("lvl", 3);
+                intent.putExtra("username", username);
+                startActivity(intent);
+                handle.postDelayed(this::finish, 0);
+            }else{
+                errorMsg(R.layout.activity_error_msg,"You need to have at least 60 points from the previous level to unlock this.");
+            }
         });
 
     }
+
+    // error message
+    public void errorMsg(int view, String text){
+        ImageView exitIcon;
+        Button exit_btn;
+
+        errorDialog.setContentView(view);
+        exitIcon = errorDialog.findViewById(R.id.success_exit);
+        exitIcon.setOnClickListener(v -> {
+            exitIcon.setColorFilter(ContextCompat.getColor(HomePage.this , R.color.error), PorterDuff.Mode.SRC_IN);
+            errorDialog.dismiss();
+        });
+
+        TextView changeText1 =  errorDialog.findViewById(R.id.success_title);
+        changeText1.setText("Unlock Level");
+
+        TextView changeText =  errorDialog.findViewById(R.id.success_msg);
+        changeText.setText(text);
+
+        exit_btn =  errorDialog.findViewById(R.id.success_ok);
+        exit_btn.setOnClickListener(v -> errorDialog.dismiss());
+
+        errorDialog.show();
+    }
+
 }

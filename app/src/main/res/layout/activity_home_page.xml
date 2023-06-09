@@ -24,7 +24,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="70dp">
+                android:layout_marginTop="80dp">
 
                 <TextView
                     android:id="@+id/homepageUser"
@@ -112,7 +112,6 @@
                         android:layout_height="139dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/img_add_sub"
                         app:cardCornerRadius="15dp"
                         app:cardElevation="10dp">
 
@@ -121,7 +120,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/img_add_sub"
+                            app:srcCompat="@drawable/img_addsub"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 
@@ -209,6 +208,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/white_select"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -228,7 +228,6 @@
                         android:layout_height="139dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/img_add_sub"
                         app:cardCornerRadius="15dp"
                         app:cardElevation="10dp">
 
@@ -237,13 +236,24 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/img_add_sub"
+                            app:srcCompat="@drawable/img_multidiv"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/lvl2Locked"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.95"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/icon_lock" />
 
                         <TextView
                             android:id="@+id/txtLvl2"
@@ -310,6 +320,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.25" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
@@ -325,6 +336,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/white_select"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -344,7 +356,6 @@
                         android:layout_height="139dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/img_add_sub"
                         app:cardCornerRadius="15dp"
                         app:cardElevation="10dp">
 
@@ -353,7 +364,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/img_add_sub"
+                            app:srcCompat="@drawable/img_basicop"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 
@@ -361,8 +372,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            android:id="@+id/lvl3Locked"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.95"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/icon_lock" />
+
                         <TextView
-                            android:id="@+id/lvl2HighScore2"
+                            android:id="@+id/lvl3HighScore"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -435,7 +457,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLeaderboards"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
@@ -460,7 +482,6 @@
                         android:layout_height="139dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/img_add_sub"
                         app:cardCornerRadius="15dp"
                         app:cardElevation="10dp">
 
@@ -469,7 +490,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/img_add_sub"
+                            app:srcCompat="@drawable/icon_leaderboards"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 

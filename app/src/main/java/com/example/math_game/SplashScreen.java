@@ -19,8 +19,8 @@ public class SplashScreen extends AppCompatActivity {
     private Handler handler;
     private int progressStatus = 0;
 
-    private String[] names = {"Caber, Jexter Jhon", "Filosopo Ervin Joel", "Pajaron, Jhon Dave", "Questeria, Alven", "Vinoya, Justin Mark"};
-    private String[] roles = {"UI Designer", "Lead Programmer", "App Tester", "Assist. Programmer [Group Leader]", "UX Designer"};
+    private String[] names = {"Caber, Jexter Jhon", "De Guzman, Chen Abriel", "Filosopo, Ervin Joel", "Laylay, Jericho Mark", "Soriano, Hannon Noriele"};
+    private String[] roles = {"Assist. Programmer", "UI Designer", "Main Programmer", "UX Designer", "Assist. Programmer"};
     private int counter = 0;
 
     @Override
@@ -36,7 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         TextView role = findViewById(R.id.textRole);
 
         handler = new Handler(Looper.getMainLooper());
-
+        SoundManager.playSound(SplashScreen.this, R.raw.welcs);
         // Create a new thread for the progress bar
         Thread thread = new Thread(new Runnable() {
             @Override

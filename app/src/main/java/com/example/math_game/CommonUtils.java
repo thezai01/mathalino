@@ -163,7 +163,6 @@ public class CommonUtils {
 
     @SuppressLint("SetTextI18n")
     public static void showNoTimer(View popup, TextView popTitle, TextView popPoints, TextView popStatus, Button continueBtn, Button[] option, int[] buttonIds, int correctIndex, Animation slideUp){
-
         popup.startAnimation(slideUp);
         popup.setVisibility(View.VISIBLE);
 

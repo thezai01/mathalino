@@ -158,6 +158,7 @@ public class GameNum4 extends AppCompatActivity {
             addPoints = countMatchingElements(correctAnsIndex, selectedAnsIndex);
 
             if(addPoints >= 1){
+                SoundManager.playSound(GameNum4.this, R.raw.gjgj);
                 popup.setBackgroundColor(Color.parseColor("#A84CAF50"));
                 popTitle.setText("Good Job!");
                 popTitle.setTextColor(Color.parseColor("#2B812E"));
@@ -167,6 +168,7 @@ public class GameNum4 extends AppCompatActivity {
                 points+= addPoints;
                 g4Score.setText(String.valueOf(points));
             } else {
+                SoundManager.playSound(GameNum4.this, R.raw.ntnt);
                 popup.setBackgroundColor(Color.parseColor("#A6D82618"));
                 popTitle.setText("Nice Try!");
                 popTitle.setTextColor(Color.parseColor("#AF1C11"));
@@ -233,6 +235,7 @@ public class GameNum4 extends AppCompatActivity {
                 }
                 @Override
                 public void onFinish() {
+                    SoundManager.playSound(GameNum4.this, R.raw.tayms);
                     showNoTimer();
                 }
             }.start();

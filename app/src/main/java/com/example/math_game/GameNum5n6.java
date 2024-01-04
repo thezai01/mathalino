@@ -132,6 +132,7 @@ public class GameNum5n6 extends AppCompatActivity {
             popPoints.setText("");
             popStatus.setText("");
             if (correctAns == answer) {
+                SoundManager.playSound(GameNum5n6.this, R.raw.gjgj);
                 popup.setBackgroundColor(Color.parseColor("#A84CAF50"));
                 popTitle.setText("Good Job!");
                 popTitle.setTextColor(Color.parseColor("#2B812E"));
@@ -139,13 +140,19 @@ public class GameNum5n6 extends AppCompatActivity {
                 winstreak++;
                 addPoints = (timeRemaining / 10) + 1;
                 if(winstreak >= 3) {
+                    if(winstreak == 3) SoundManager.playSound(GameNum5n6.this, R.raw.glike);
+                    else if(winstreak == 4) SoundManager.playSound(GameNum5n6.this, R.raw.dom);
+                    else if(winstreak >= 5) SoundManager.playSound(GameNum5n6.this, R.raw.legend);
                     addPoints += winstreak - 2;
                     popStatus.setText("x"+ winstreak +" combo!");
+                }else{
+                    SoundManager.playSound(GameNum5n6.this, R.raw.gjgj);
                 }
                 popPoints.setText("+" + addPoints + " pts");
                 points+= addPoints;
                 g5n6Score.setText(String.valueOf(points));
             } else {
+                SoundManager.playSound(GameNum5n6.this, R.raw.ntnt);
                 popup.setBackgroundColor(Color.parseColor("#A6D82618"));
                 popTitle.setText("Wrong Answer!");
                 popTitle.setTextColor(Color.parseColor("#AF1C11"));
@@ -203,6 +210,7 @@ public class GameNum5n6 extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     winstreak = 0;
+                    SoundManager.playSound(GameNum5n6.this, R.raw.tayms);
                     CommonUtils.showNoTimer(popup, popTitle, popPoints, popStatus, continueBtn, option, buttonIds, correctAnsIndex-1, loadSlideUpAnimation(getApplicationContext()));
                 }
             }.start();
@@ -273,6 +281,7 @@ public class GameNum5n6 extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     winstreak = 0;
+                    SoundManager.playSound(GameNum5n6.this, R.raw.tayms);
                     CommonUtils.showNoTimer(popup, popTitle, popPoints, popStatus, continueBtn, option, buttonIds, correctAnsIndex-1, loadSlideUpAnimation(getApplicationContext()));
                 }
             }.start();

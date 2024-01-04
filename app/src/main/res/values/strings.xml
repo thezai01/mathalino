@@ -16,6 +16,24 @@
         <item>December</item>
 
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_nav"> Open Navigation Drawer</string>
+    <string name="close_nav"> Close Navigation Drawer</string>
+
+    <integer name="lvl_exp">50</integer>
+
+    <string-array name="nameTitle">
+        <item>Novice</item>
+        <item>Apprentice</item>
+        <item>Learner</item>
+        <item>Adept</item>
+        <item>Expert</item>
+        <item>Prodigy</item>
+        <item>Master</item>
+        <item>Grandmaster</item>
+        <item>God</item>
+    </string-array>
 
 
 </resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@drawable/gradient_bg5"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="bottom|left"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgNavUserPfp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/icon_boy"
+            app:civ_border_color="#000000"
+            app:civ_border_overlay="false"
+            app:civ_border_width="1dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/txtNavHeaderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ruda_black"
+                android:text="Username"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtNavHeaderUserTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ruda_black"
+                android:text="Title"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:paddingLeft="70dp">
+
+        <TextView
+            android:id="@+id/txtNavUserLvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ruda_bold"
+            android:text="Level"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progBarNavLvl"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="150dp"
+            android:layout_height="6dp"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/custom_progress_bar_small" />
+
+        <TextView
+            android:id="@+id/txtNavLvlXp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ruda_bold"
+            android:text="0 / 0 exp"
+            android:textColor="@color/gray"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+</LinearLayout>

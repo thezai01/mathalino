@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
 
-    <color name="white">#ECEFF1</color>
+    <color name="white">#F3EEEE</color>
     <color name="white_select">#DBE0E3</color>
 
     <color name="light_blue">#87CEEB</color>
@@ -12,7 +12,7 @@
     <color name="green">#4CAF50</color>
     <color name="light_green">#8AEF8E</color>
 
-    <color name="gray">#5D5E60</color>
+    <color name="gray">#656565</color>
 
     <color name="gray_highlight">#D8DCE1</color>
     <color name="button_highlight">#92CEE6</color>
@@ -20,6 +20,14 @@
     <color name="error">#D82618</color>
     <color name="light_error">#EA665B</color>
     <color name="logo_blue">#0DA9DE</color>
+
+    <color name="seekbar_thumb">#366A7F</color>
+    <color name="seekbar_bg">#444645</color>
+
+    <color name="txtbox_locked">#D1D8DC</color>
+
+    <color name="button_correct">#00B32D</color>
+    <color name="button_wrong">#E4224E</color>
 
 
 </resources>

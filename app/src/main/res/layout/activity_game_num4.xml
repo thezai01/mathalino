@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameNum4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/popup"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="#A84CAF50"
+        android:elevation="100dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/popStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:fontFamily="@font/ruda_black"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.407" />
+
+        <TextView
+            android:id="@+id/popPoints"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:fontFamily="@font/ruda_black"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.942"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.09" />
+
+        <TextView
+            android:id="@+id/popTitle"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ruda_black"
+            android:text="Good Job!"
+            android:textAlignment="viewStart"
+            android:textColor="#2B812E"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <Button
+            android:id="@+id/continueButton"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:background="@drawable/custom_button2"
+            android:fontFamily="@font/ruda_bold"
+            android:text="CONTINUE"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvG4Score"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start">
+
+            <TextView
+                android:id="@+id/txtScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/ruda_black"
+                android:text="SCORE:"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textSize="42sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtG4Score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/ruda_black"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/error"
+                android:textSize="44sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnGame4Confirm"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/ruda_bold"
+        android:text="CONFIRM"
+        android:textColor="@color/white"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <ProgressBar
+        android:id="@+id/game4ProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game4_exit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/txtG4Question"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ruda_black"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119" />
+
+    <ImageView
+        android:id="@+id/game4_exit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998"
+        app:srcCompat="@drawable/custom_exit"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/btnGame4A"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGame4D"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4B"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGame4E"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4C"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4C"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGame4F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4B"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4D"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4E"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4F"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4D"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4F"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4E"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4G"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4H"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGame4D"
+        app:layout_constraintVertical_bias="0.126"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4H"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGame4I"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4G"
+        app:layout_constraintTop_toBottomOf="@+id/btnGame4E"
+        app:layout_constraintVertical_bias="0.126"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGame4I"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/ruda_bold"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnGame4H"
+        app:layout_constraintTop_toBottomOf="@+id/btnGame4F"
+        app:layout_constraintVertical_bias="0.126"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/txtGame4Second"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:fontFamily="@font/ruda_black"
+        android:text="second/s"
+        android:textAlignment="textStart"
+        android:textColor="@color/gray"
+        android:textSize="28sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtGame4_Timer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.261" />
+
+    <TextView
+        android:id="@+id/txtGame4_Timer"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ruda_black"
+        android:text="30"
+        android:textAlignment="center"
+        android:textColor="@color/error"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgGame4Timer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <ImageView
+        android:id="@+id/imgGame4Timer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248"
+        app:srcCompat="@drawable/icon_timer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

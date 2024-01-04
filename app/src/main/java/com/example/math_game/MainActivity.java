@@ -1,19 +1,12 @@
 package com.example.math_game;
-import android.os.CountDownTimer;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.Toast;
-import android.window.SplashScreen;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
@@ -21,14 +14,16 @@ import android.text.method.PasswordTransformationMethod;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText loginUsername, loginPass;
 
     boolean passMatch, userMatch;
+    String gender;
 
     Handler handle;
     Dialog errorDialog, confirmDialog;
@@ -37,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //FOR DEBUGGING ONLY
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_main);
 
         db = openOrCreateDatabase("accDetails", Context.MODE_PRIVATE, null);
+
         db.execSQL("CREATE TABLE IF NOT EXISTS tableAcc (username TEXT PRIMARY KEY,"+
-                "uPass TEXT, uName TEXT, uBday TEXT, uAge INTEGER, uGender TEXT);");
+                "uPass TEXT, uName TEXT, uBday TEXT, uAge INTEGER, uGender TEXT, uExp INTEGER);");
 
         handle = new Handler();
         errorDialog = new Dialog(this);
@@ -75,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     private void database() {
 
         // DATABASES
-
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM tableAcc WHERE username ='" + loginUsername.getText().toString() + "'", null);
 
         passMatch = false;
@@ -86,73 +80,32 @@ public class MainActivity extends AppCompatActivity {
             userMatch = true;
             if (loginPass.getText().toString().equals(cursor.getString(1))) {
                passMatch = true;
-                welcome(R.layout.activity_success,"Login Successfully. Welcome "+loginUsername.getText().toString()+"!","LOGIN");
-
+               gender = cursor.getString(5);
+                CommonUtils.welcome(confirmDialog, this, R.layout.activity_success,"Login Successfully.\nWelcome "+loginUsername.getText().toString()+"!","LOGIN", result -> {
+                    if(result == 1) startIntent();
+                });
             }
         }
 
-        if(loginUsername.getText().toString().isEmpty() || loginPass.getText().toString().isEmpty()) errorMsg(R.layout.activity_error_msg,"Please ensure that you provide the required information.");
-        else if(!userMatch) errorMsg(R.layout.activity_error_msg,"Entered username doesn't exist.");
-        else if(userMatch && passMatch==false) errorMsg(R.layout.activity_error_msg,"Entered password is incorrect. Please try again.");
+        if(loginUsername.getText().toString().isEmpty() || loginPass.getText().toString().isEmpty()) CommonUtils.errorMsg(errorDialog,this, R.layout.activity_error_msg,"Please ensure that you provide the required information.");
+        else if(!userMatch) CommonUtils.errorMsg(errorDialog,this,R.layout.activity_error_msg,"Entered username doesn't exist.");
+        else if(!passMatch) CommonUtils.errorMsg(errorDialog,this,R.layout.activity_error_msg,"Entered password is incorrect. Please try again.");
 
+        cursor.close();
     }
 
-    // error message
-    public void errorMsg(int view, String text){
-        ImageView exitIcon;
-        Button exit_btn;
-
-        errorDialog.setContentView(view);
-        exitIcon = errorDialog.findViewById(R.id.success_exit);
-        exitIcon.setOnClickListener(v -> {
-            exitIcon.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.error), PorterDuff.Mode.SRC_IN);
-            errorDialog.dismiss();
-        });
-
-        TextView changeText =  errorDialog.findViewById(R.id.success_msg);
-        changeText.setText(text);
-
-        exit_btn =  errorDialog.findViewById(R.id.success_ok);
-        exit_btn.setOnClickListener(v -> errorDialog.dismiss());
-
-        errorDialog.show();
+    public void startIntent(){
+        Intent intent = new Intent(MainActivity.this, Navigation.class);
+        SharedPreferences sharedPref = getSharedPreferences("mathalino", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("username", loginUsername.getText().toString());
+        editor.putString("gender", gender);
+        editor.apply();
+        startActivity(intent);
+        confirmDialog.dismiss();
+        handle.postDelayed(this::finish, 0);
     }
 
-    // welcome message
-    @SuppressLint("StringFormatInvalid")
-    public void welcome(int view, String text, String title){
-        ImageView exitIcon;
-        Button exit_btn;
-
-        confirmDialog.setContentView(view);
-        exitIcon = confirmDialog.findViewById(R.id.success_exit);
-        exitIcon.setOnClickListener(v -> {
-            exitIcon.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.error), PorterDuff.Mode.SRC_IN);
-            Intent intent = new Intent(MainActivity.this, HomePage.class);
-            intent.putExtra("username",loginUsername.getText().toString());
-            confirmDialog.dismiss();
-            startActivity(intent);
-            handle.postDelayed(this::finish, 0);
-        });
-
-        TextView changeTitle =  confirmDialog.findViewById(R.id.success_title);
-        changeTitle.setText(title);
-
-        TextView changeText =  confirmDialog.findViewById(R.id.success_msg);
-        changeText.setText(text);
-
-        exit_btn = confirmDialog.findViewById(R.id.success_ok);
-        exit_btn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, HomePage.class);
-            intent.putExtra("username",loginUsername.getText().toString());
-            startActivity(intent);
-            confirmDialog.dismiss();
-            handle.postDelayed(this::finish, 0);
-        });
-
-        confirmDialog.show();
-
-    }
 
 
 }

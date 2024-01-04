@@ -4,7 +4,10 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:fontFamily">@font/ruda_regular</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
     <style name="Theme.Math_game" parent="Base.Theme.Math_game" />
+
+    <!-- styles.xml -->
 
 </resources>

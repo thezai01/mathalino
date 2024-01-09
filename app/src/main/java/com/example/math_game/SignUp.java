@@ -111,7 +111,7 @@ public class SignUp extends AppCompatActivity {
 
         // INITIAL DATABASE
          db.execSQL("CREATE TABLE IF NOT EXISTS tableAcc (username TEXT PRIMARY KEY,"+
-                "uPass TEXT, uName TEXT, uAge INTEGER, uGender TEXT, uExp INTEGER);");
+                "uPass TEXT, uName TEXT, uBday TEXT, uAge INTEGER, uGender TEXT, uExp INTEGER);");
 
         if(sName.getText().toString().isEmpty() || sUsername.getText().toString().isEmpty() ||
                 sPass.getText().toString().isEmpty() || sConfirmPass.getText().toString().isEmpty() || gender.isEmpty() ){

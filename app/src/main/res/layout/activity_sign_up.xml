@@ -100,11 +100,11 @@
                 android:layout_width="265dp"
                 android:layout_height="45dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/registerUsername"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginUsername"
                 app:layout_constraintVertical_bias="0.38">
 
                 <RadioButton
@@ -144,11 +144,11 @@
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:textColor="@color/gray"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/registerPass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registergroupGender"
                 app:layout_constraintVertical_bias="0.55"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -162,11 +162,11 @@
                 android:inputType="text|textPassword"
                 android:paddingLeft="10dp"
                 android:textColor="@color/gray"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/registerConfirmPass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerUsername"
                 app:layout_constraintVertical_bias="0.72"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
@@ -180,11 +180,11 @@
                 android:inputType="text|textPassword"
                 android:paddingLeft="10dp"
                 android:textColor="@color/gray"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/registerShowPass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerPass"
                 app:layout_constraintVertical_bias="0.87"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -204,26 +204,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.965"
                 tools:ignore="TouchTargetSizeCheck" />
-
-            <Button
-                android:id="@+id/registerBirthdate"
-                android:layout_width="264dp"
-                android:layout_height="45dp"
-                android:background="@drawable/custom_txtbox"
-                android:paddingLeft="8dp"
-                android:text="Birthdate"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:typeface="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.211"
-                tools:ignore="TouchTargetSizeCheck" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

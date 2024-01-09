@@ -29,20 +29,21 @@ public class SignUp extends AppCompatActivity {
 
     CheckBox showPass;
     RadioButton registerMale,registerFemale;
-    Button sbirthDate, login;
-    DatePickerDialog dpDialog;
+    Button login;
+//    Button sbirthDate;
+//    DatePickerDialog dpDialog;
     EditText sName, sUsername, sPass, sConfirmPass;
 
-    private final Calendar calendar = Calendar.getInstance();
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM / dd / yyyy", Locale.getDefault());
-    private final int cYear = calendar.get(Calendar.YEAR);
-    private final int cMonth = calendar.get(Calendar.MONTH);
-    private final int cDay = calendar.get(Calendar.DAY_OF_MONTH);
+//    private final Calendar calendar = Calendar.getInstance();
+//    private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM / dd / yyyy", Locale.getDefault());
+//    private final int cYear = calendar.get(Calendar.YEAR);
+//    private final int cMonth = calendar.get(Calendar.MONTH);
+//    private final int cDay = calendar.get(Calendar.DAY_OF_MONTH);
     int[] age = {0};
     String gender="";
-    String[] dateMonth, textDate = {""};
+//    String[] dateMonth, textDate = {""};
 
-    ContentValues valuesAdd, valuesAdd1;
+    ContentValues valuesAdd;
     Handler handle;
     private static Dialog errorDialog, confirmDialog;
 
@@ -67,12 +68,12 @@ public class SignUp extends AppCompatActivity {
         sPass = findViewById(R.id.registerPass);
         sConfirmPass = findViewById(R.id.registerConfirmPass);
 
-        dateMonth = getResources().getStringArray(R.array.dateMonth);
-        textDate[0] = dateFormat.format(calendar.getTime());
-        sbirthDate = findViewById(R.id.registerBirthdate);
-        sbirthDate.setText("Birthday: "+dateFormat.format(calendar.getTime()));
-        dpDialog = CommonUtils.initDatePicker(this, dpDialog, calendar, textDate, dateMonth, age, cYear, cMonth, cDay, sbirthDate);
-        sbirthDate.setOnClickListener(v ->  dpDialog.show());
+//        dateMonth = getResources().getStringArray(R.array.dateMonth);
+//        textDate[0] = dateFormat.format(calendar.getTime());
+//        sbirthDate = findViewById(R.id.registerBirthdate);
+//        sbirthDate.setText("Birthday: "+dateFormat.format(calendar.getTime()));
+//        dpDialog = CommonUtils.initDatePicker(this, dpDialog, calendar, textDate, dateMonth, age, cYear, cMonth, cDay, sbirthDate);
+//        sbirthDate.setOnClickListener(v ->  dpDialog.show());
 
         registerMale = findViewById(R.id.registerMale);
         registerFemale = findViewById(R.id.registerFemale);
@@ -101,8 +102,8 @@ public class SignUp extends AppCompatActivity {
 
     private void database(){
 
-        String[] parts = textDate[0].split(":");
-        if (parts.length > 1) textDate[0] = parts[1].trim();
+//        String[] parts = textDate[0].split(":");
+//        if (parts.length > 1) textDate[0] = parts[1].trim();
 
         if(registerMale.isChecked()) gender = "Male";
         else if(registerFemale.isChecked()) gender = "Female";
@@ -137,7 +138,7 @@ public class SignUp extends AppCompatActivity {
         valuesAdd.put("username",String.valueOf(sUsername.getText()));
         valuesAdd.put("uPass",String.valueOf(sPass.getText()));
         valuesAdd.put("uName",String.valueOf(sName.getText()));
-        valuesAdd.put("uBday",textDate[0]);
+//        valuesAdd.put("uBday",textDate[0]);
         valuesAdd.put("uAge",age[0]);
         valuesAdd.put("uGender",gender);
         valuesAdd.put("uExp",0);

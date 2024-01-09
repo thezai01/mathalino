@@ -44,20 +44,20 @@ public class UserEditFragment extends Fragment {
     private String mParam2;
 
     DatePickerDialog dpDialog;
-    Button UPBday, UPConfirm;
+    Button UPConfirm;
+//    Button UPBday;
     EditText eTxtName, eTxtUsername, eTxtPass, eTxtGender;
 
-    private final Calendar calendar = Calendar.getInstance();
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM / dd / yyyy", Locale.getDefault());
+//    private final Calendar calendar = Calendar.getInstance();
+//    private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM / dd / yyyy", Locale.getDefault());
     SQLiteDatabase db;
     Cursor cursor;
 
     SharedPreferences sharedPrefer;
 
     String textDate[] = {""}, username, userDate;
-    String[] dateMonth;
-    private int cYear = calendar.get(Calendar.YEAR), cMonth = calendar.get(Calendar.MONTH), cDay = calendar.get(Calendar.DAY_OF_MONTH),  age[] = {0};
-
+//    String[] dateMonth;
+//    private int cYear = calendar.get(Calendar.YEAR), cMonth = calendar.get(Calendar.MONTH), cDay = calendar.get(Calendar.DAY_OF_MONTH),  age[] = {0};
     private static Dialog errorDialog, confirmDialog;
 
     public UserEditFragment() {
@@ -128,16 +128,16 @@ public class UserEditFragment extends Fragment {
         eTxtGender.setText(cursor.getString(5));
         if(cursor.getString(5).equals("Male")) imgUserPfp.setImageResource(R.drawable.icon_boy);
         else imgUserPfp.setImageResource(R.drawable.icon_girl);
-        age[0] = cursor.getInt(4);
+//        age[0] = cursor.getInt(4);
         cursor.close();
 
         // FOR DATE PICKER
-        dateMonth = getResources().getStringArray(R.array.dateMonth);
-        UPBday = getView().findViewById(R.id.btnUPBday);
-        UPBday.setText(userDate);
-        setCDate();
-        dpDialog = CommonUtils.initDatePicker(requireActivity(), dpDialog, calendar, textDate, dateMonth, age, cYear, cMonth, cDay, UPBday);
-        UPBday.setOnClickListener(v ->  dpDialog.show());
+//        dateMonth = getResources().getStringArray(R.array.dateMonth);
+//        UPBday = getView().findViewById(R.id.btnUPBday);
+//        UPBday.setText(userDate);
+//        setCDate();
+//        dpDialog = CommonUtils.initDatePicker(requireActivity(), dpDialog, calendar, textDate, dateMonth, age, cYear, cMonth, cDay, UPBday);
+//        UPBday.setOnClickListener(v ->  dpDialog.show());
 
         CheckBox UPShowPass= getView().findViewById(R.id.chckBoxUPShowPass);
         UPShowPass.setOnClickListener(v -> {
@@ -157,17 +157,17 @@ public class UserEditFragment extends Fragment {
 
     }
 
-    // SETTING DATE-PICKER DEFAULT, USER BIRTHDATE
-    public void setCDate(){
-        try {
-            Date date = dateFormat.parse(userDate);
-
-            cMonth = date.getMonth();
-            cDay = date.getDate();
-            cYear = date.getYear() + 1900;
-
-        } catch (ParseException e) {throw new RuntimeException(e);}
-    }
+//    // SETTING DATE-PICKER DEFAULT, USER BIRTHDATE
+//    public void setCDate(){
+//        try {
+//            Date date = dateFormat.parse(userDate);
+//
+//            cMonth = date.getMonth();
+//            cDay = date.getDate();
+//            cYear = date.getYear() + 1900;
+//
+//        } catch (ParseException e) {throw new RuntimeException(e);}
+//    }
 
     // EDITING USER PROFILE
     public void editProfile(){
@@ -193,7 +193,7 @@ public class UserEditFragment extends Fragment {
         values.put("username", String.valueOf(eTxtUsername.getText()));
         values.put("uPass", String.valueOf(eTxtPass.getText()));
         values.put("uName", String.valueOf(eTxtName.getText()));
-        values.put("uBday", String.valueOf(UPBday.getText()));
+//        values.put("uBday", String.valueOf(UPBday.getText()));
 
         // UPDATE HOME FRAGMENT
         SharedPreferences.Editor editor = sharedPrefer.edit();

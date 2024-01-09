@@ -1,12 +1,19 @@
 package com.example.math_game;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,10 @@ public class SettingFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Switch hasSound;
+    SeekBar musicVolume, sfxVolume, masterVolume;
+    Button save, close;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -56,9 +67,53 @@ public class SettingFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_setting, container, false);
+    }
+
+    void init(){
+        hasSound = getView().findViewById(R.id.switch_sounds);
+        masterVolume = getView().findViewById(R.id.seekB_masterV);
+        musicVolume = getView().findViewById(R.id.seekB_musicV);
+        sfxVolume = getView().findViewById(R.id.seekB_soundE);
+
+        hasSound.setChecked(SoundManager.hasSounds);
+        masterVolume.setProgress(Math.round(SoundManager.masterVolume));
+        musicVolume.setProgress(Math.round(SoundManager.musicVolume));
+        sfxVolume.setProgress(Math.round(SoundManager.sfxVolume));
+
+        save = getView().findViewById(R.id.btnSettingSave);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeSoundSettings();
+                Toast.makeText(requireContext(), "Successfully Changed Volume Settings!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        close = getView().findViewById(R.id.btnSettingsClose);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireContext(), Navigation.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    void changeSoundSettings(){
+        SoundManager.hasSounds = hasSound.isChecked();
+        SoundManager.masterVolume = masterVolume.getProgress();
+        SoundManager.musicVolume = musicVolume.getProgress();
+        SoundManager.sfxVolume = sfxVolume.getProgress();
     }
 }

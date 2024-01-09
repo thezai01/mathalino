@@ -34,7 +34,6 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
     Handler handle;
     Dialog confirmDialog;
     SQLiteDatabase db;
-
     NavigationView navigationView;
     Cursor cursor;
     @Override

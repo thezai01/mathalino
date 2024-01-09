@@ -10,35 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnUPBday"
-            android:layout_width="354dp"
-            android:layout_height="35dp"
-            android:background="@drawable/custom_txtbox"
-            android:paddingLeft="8dp"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false"
-            android:textColor="@color/gray"
-            android:textSize="16sp"
-            android:typeface="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.563"
-            tools:ignore="TouchTargetSizeCheck" />
-
         <ImageView
             android:id="@+id/imageView14"
             android:layout_width="29dp"
             android:layout_height="29dp"
             android:src="@drawable/icon_user"
-            app:layout_constraintBottom_toBottomOf="@+id/txtCopyrights3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUPName"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUPUName"
             app:layout_constraintVertical_bias="0.384" />
 
         <EditText
@@ -51,10 +32,10 @@
             android:inputType="text"
             android:paddingLeft="10dp"
             android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageView8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView14"
             app:layout_constraintVertical_bias="0.435"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -101,10 +82,10 @@
             android:inputType="text"
             android:paddingLeft="10dp"
             android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageView14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
             app:layout_constraintVertical_bias="0.31"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -119,10 +100,10 @@
             android:paddingLeft="10dp"
             android:password="true"
             android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageView9"
             app:layout_constraintVertical_bias="0.68"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -134,12 +115,11 @@
             android:text="Password"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.221"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.62" />
+            app:layout_constraintBottom_toTopOf="@+id/edtTxtUPPassword"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUPUName"/>
 
         <CheckBox
             android:id="@+id/chckBoxUPShowPass"
@@ -150,12 +130,11 @@
             android:text="Show Password"
             android:textColor="@color/gray"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edtTxtUPPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.739"
+            app:layout_constraintTop_toBottomOf="@+id/edtTxtUPGender"
             tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
@@ -163,11 +142,11 @@
             android:layout_width="29dp"
             android:layout_height="29dp"
             android:src="@drawable/icon_lock"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edtTxtUPPassword"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUPUName"
             app:layout_constraintVertical_bias="0.62" />
 
         <EditText
@@ -183,38 +162,13 @@
             android:inputType="text"
             android:paddingLeft="10dp"
             android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnUserProfileSave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
             app:layout_constraintVertical_bias="0.804"
             tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:src="@drawable/icon_bdate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.089"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ruda_bold"
-            android:text="Birthday"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView15"
@@ -224,12 +178,11 @@
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.202"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.258" />
+            app:layout_constraintTop_toBottomOf="@+id/imgViewUPProfile"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUPName"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -239,12 +192,11 @@
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.226"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUPName"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUPUName"/>
 
         <TextView
             android:id="@+id/textView18"
@@ -254,12 +206,11 @@
             android:text="Gender"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.209"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.742" />
+            app:layout_constraintBottom_toTopOf="@+id/edtTxtUPGender"
+            app:layout_constraintTop_toBottomOf="@+id/edtTxtUPPassword"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgViewUPProfile"
@@ -297,11 +248,11 @@
             android:layout_width="29dp"
             android:layout_height="29dp"
             android:src="@drawable/icon_gender"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edtTxtUPGender"
+            app:layout_constraintTop_toBottomOf="@+id/edtTxtUPPassword"
             app:layout_constraintVertical_bias="0.74" />
 
         <Button
@@ -325,11 +276,11 @@
             android:layout_width="29dp"
             android:layout_height="29dp"
             android:src="@drawable/icon_user"
-            app:layout_constraintBottom_toBottomOf="@+id/txtCopyrights3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewUPProfile"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUPName"
             app:layout_constraintVertical_bias="0.26" />
 
         <ImageView

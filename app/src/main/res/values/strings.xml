@@ -24,7 +24,7 @@
     <integer name="lvl_exp">50</integer>
 
     <string-array name="nameTitle">
-        <item>Novice</item>
+        <item>New Player</item>
         <item>Apprentice</item>
         <item>Learner</item>
         <item>Adept</item>
